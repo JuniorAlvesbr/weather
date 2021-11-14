@@ -1,0 +1,11 @@
+.main {
+    width: 414px;
+    height: auto;
+    margin: 0 auto;
+    background-color: var(--color-light);
+    color: var(--color-white);
+}
+
+.svg-icon path {
+    fill: #ffffff;
+}
