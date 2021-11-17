@@ -1,11 +1,16 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .main {
     width: 414px;
     height: auto;
     margin: 0 auto;
+    padding: 26px;
     background-color: var(--color-light);
     color: var(--color-white);
-}
-
-.svg-icon path {
-    fill: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

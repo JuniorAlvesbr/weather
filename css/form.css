@@ -1,0 +1,10 @@
+.form > .label {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.form > .inputCity {
+    width: 250px;
+    height: 47px;
+}

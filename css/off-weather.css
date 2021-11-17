@@ -1,0 +1,18 @@
+.off-weather {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 18px
+}
+
+.off-weather > .five-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.off-weather > .five-list .item {
+    width: 50px;
+}
+
+.five-list > .item img {
+    width: 100%;
+}

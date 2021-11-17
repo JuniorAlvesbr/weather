@@ -7,40 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/color.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/main-weather.css">
+    <link rel="stylesheet" href="./css/off-weather.css">
+
 </head>
 
 <body>
     <main class="main">
-        <form>
-            <p>Insira o nome da cidade</p>
-            <input type="text" name="city" placeholder="Ex. São Paulo">
+        <form class="form">
+            <label for="inputCity" class="label">Insira o nome da cidade</label>
+            <input type="text" id="inputCity" name="inputCity" class="inputCity" placeholder="Ex. São Paulo">
         </form>
 
         <section>
-            <article>
-                <p>Maringá</p>
+            <article class="main-weather">
+                <p class="cityName">Maringá - Pr</p>
                 <img src="assets/icons/4.svg" alt="Previsão do tempo" class="svg-icon">
-                <p>moderate rain</p>
-                <p>
+                <p class="weather">moderate rain</p>
+                <p class="temperature">
                     <span>30</span>
                     <span>&degC</span>
                 </p>
 
-                <ul>
-                    <li><img src="./assets/icons/30.svg" alt="Pressão do vento"><span>1009</span>hpa</li>
-                    <li><img src="./assets/icons/12.svg" alt="Umidade do ar"><span>30</span>%</li>
-                    <li><img src="assets/icons/32.svg" alt="Velocidade do vento"><span>4</span>m/s</li>
+                <ul class="weather-info">
+                    <li class="item">
+                        <img src="./assets/icons/30.svg" alt="Pressão do vento" class="icon">
+                        <span>1009hpa</span>
+                    </li>
+                    <li class="item">
+                        <img src="./assets/icons/12.svg" alt="Umidade do ar" class="icon">
+                        <span>30%</span>
+                    </li>
+                    <li class="item">
+                        <img src="assets/icons/32.svg" alt="Velocidade do vento" class="icon">
+                        <span>4m/s</span>
+                    </li>
                 </ul>
             </article>
 
-            <article>
-                <p>next 5 days</p>
-                <hr>
-                <ul>
-                    <li>
+            <article class="off-weather">
+                <p class="next-days">next 5 days</p>
+                <hr class="line">
+
+                <ul class="five-list">
+                    <li class="item">
                         <p>Dom</p>
                         <img src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
@@ -48,7 +66,7 @@
                             <span>&degC</span>
                         </p>
                     </li>
-                    <li>
+                    <li class="item">
                         <p>Dom</p>
                         <img src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
@@ -56,7 +74,7 @@
                             <span>&degC</span>
                         </p>
                     </li>
-                    <li>
+                    <li class="item">
                         <p>Dom</p>
                         <img src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
@@ -64,7 +82,7 @@
                             <span>&degC</span>
                         </p>
                     </li>
-                    <li>
+                    <li class="item">
                         <p>Dom</p>
                         <img src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
@@ -72,7 +90,7 @@
                             <span>&degC</span>
                         </p>
                     </li>
-                    <li>
+                    <li class="item">
                         <p>Dom</p>
                         <img src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>

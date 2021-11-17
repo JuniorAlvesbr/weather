@@ -1,0 +1,23 @@
+section {
+    width: 100%;
+}
+.main-weather {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.main-weather > .temperature {
+    margin-top: 10px;
+}
+
+.main-weather > .weather-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.main-weather > .weather-info .icon {
+    display: block;
+}
