@@ -24,16 +24,17 @@
     <main class="main">
         <form class="form">
             <label for="inputCity" class="label">Insira o nome da cidade</label>
-            <input type="text" id="inputCity" name="inputCity" class="inputCity" placeholder="Ex. São Paulo">
+            <input type="text" id="inputCity" name="inputCity" class="inputCity" value="Maringá"
+                placeholder="Ex. São Paulo">
         </form>
 
         <section>
             <article class="main-weather">
-                <p class="cityName">Maringá - Pr</p>
-                <img src="assets/icons/4.svg" alt="Previsão do tempo" class="svg-icon">
-                <p class="weather">moderate rain</p>
+                <p class="cityName">Cidade</p>
+                <img src="assets/icons/4.svg" alt="Previsão do tempo" class="icon">
+                <p class="weather">Tempo</p>
                 <p class="temperature">
-                    <span>30</span>
+                    <span data-js="temperature">30</span>
                     <span>&degC</span>
                 </p>
 
@@ -101,6 +102,9 @@
                 </ul>
             </article>
         </section>
+
+        <script src="./src/weather.js"></script>
+        <script src="./src/app.js"></script>
     </main>
 </body>
 
