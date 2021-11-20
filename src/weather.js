@@ -12,21 +12,41 @@ const getForecastFiveDaysURL = Key =>
 
 
 const getInfoAPI = async (inputValue) => {
-    const [{ LocalizedName, Key }] = await getCity(inputValue)
+    try {
+        const [{ LocalizedName, Key }] = await getCity(inputValue)
 
-    const dataWeather = await getWeather(Key)
-    const dataForecastFiveDays = await getForecastFiveDays(Key)
+        if (LocalizedName === "") {
+            throw new Error('Não foi posssivel localizar a cidade')
+        }
 
-    dataWeather['LocalizedName'] = LocalizedName
-    dataWeather['dataForecastFiveDays'] = dataForecastFiveDays
+        const dataWeather = await getWeather(Key)
+        const dataForecastFiveDays = await getForecastFiveDays(Key)
 
-    return dataWeather
+        dataWeather['LocalizedName'] = LocalizedName
+        dataWeather['dataForecastFiveDays'] = dataForecastFiveDays
+
+        return dataWeather
+
+    } catch ({ name, message }) {
+        alert(`${name}, ${message}`)
+    }
 }
 
 const getCity = async (inputValue) => {
-    const url = getCityURl(inputValue)
+    const cityURL = getCityURl(inputValue)
 
-    return await (await fetch(url)).json()
+    try {
+        const response = await fetch(cityURL)
+
+        if (!response.ok) {
+            throw new Error('Não foi possivel obter os dados')
+        }
+
+        return await response.json()
+
+    } catch ({ name, message }) {
+        alert(`${name}, ${message}`)
+    }
 }
 
 const getWeather = async Key => {
