@@ -12,7 +12,7 @@ const $weekDay = document.querySelectorAll('[data-js="weekDay"]')
 const $fiveIcon = document.querySelectorAll('[data-js="fiveIcon"]')
 const $temperature = document.querySelectorAll('[data-js="temperature"]')
 
-console.log($main)
+const iconURL = `https://developer.accuweather.com/sites/default/files/01-s.png`
 
 $form.addEventListener('submit', async event => {
     event.preventDefault()
@@ -35,7 +35,7 @@ const showDataInHTML = ({
     dataForecastFiveDays
 }) => {
     $cityName.textContent = LocalizedName
-    $icon.src = `assets/icons/${WeatherIcon}.svg`
+    $icon.src = getIconURL(WeatherIcon)
     $weather.textContent = WeatherText
     $mainTemperature.textContent = Temperature.Metric.Value
     $pressure.textContent = Pressure.Metric.Value
@@ -51,7 +51,12 @@ const showDataInHTML = ({
 const showFiveDaysinHTML = (data) => {
     data.forEach(({ weekDay, icon, temperature }, index) => {
         $weekDay[index].textContent = weekDay
-        $fiveIcon[index].src = `assets/icons/${icon}.svg`
+        $fiveIcon[index].src = getIconURL(icon)
         $temperature[index].textContent = temperature
     })
 }
+
+const getIconURL = icon =>
+    icon < 10 ?
+        `https://developer.accuweather.com/sites/default/files/0${icon}-s.png` :
+        `https://developer.accuweather.com/sites/default/files/${icon}-s.png`
