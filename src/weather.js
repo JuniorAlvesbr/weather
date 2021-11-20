@@ -1,4 +1,4 @@
-const APIKEY = 'Isa1r5U4bVsedxWNKdDmNGZUCzWT66bA'
+const APIKEY = '1ZI5WkGT72RSt8GsMpmNzBq7Yjrfj30A'
 const daysOFtheWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
 
 const getCityURl = inputValue =>
