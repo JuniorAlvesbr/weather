@@ -24,17 +24,16 @@
     <main class="main">
         <form class="form">
             <label for="inputCity" class="label">Insira o nome da cidade</label>
-            <input type="text" id="inputCity" name="inputCity" class="inputCity" value="Maringá"
-                placeholder="Ex. São Paulo">
+            <input type="text" id="inputCity" name="inputCity" class="inputCity" placeholder="Ex. São Paulo">
         </form>
 
-        <section>
+        <section class="wrapper">
             <article class="main-weather">
                 <p class="cityName">Cidade</p>
                 <img src="assets/icons/4.svg" alt="Previsão do tempo" class="icon">
                 <p class="weather">Tempo</p>
                 <p class="temperature">
-                    <span data-js="temperature">30</span>
+                    <span data-js="main-temperature"></span>
                     <span>&degC</span>
                 </p>
 
@@ -55,47 +54,47 @@
             </article>
 
             <article class="off-weather">
-                <p class="next-days">next 5 days</p>
+                <p class="next-days">5 dias</p>
                 <hr class="line">
 
                 <ul class="five-list">
                     <li class="item">
-                        <p>Dom</p>
-                        <img src="./assets/icons/33.svg" alt="icone do tempo">
+                        <p data-js="weekDay">Dom</p>
+                        <img data-js="fiveIcon" src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
-                            <span>30</span>
+                            <span data-js="temperature">30</span>
                             <span>&degC</span>
                         </p>
                     </li>
                     <li class="item">
-                        <p>Dom</p>
-                        <img src="./assets/icons/33.svg" alt="icone do tempo">
+                        <p data-js="weekDay">Seg</p>
+                        <img data-js="fiveIcon" src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
-                            <span>30</span>
+                            <span data-js="temperature">30</span>
                             <span>&degC</span>
                         </p>
                     </li>
                     <li class="item">
-                        <p>Dom</p>
-                        <img src="./assets/icons/33.svg" alt="icone do tempo">
+                        <p data-js="weekDay">Ter</p>
+                        <img data-js="fiveIcon" src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
-                            <span>30</span>
+                            <span data-js="temperature">30</span>
                             <span>&degC</span>
                         </p>
                     </li>
                     <li class="item">
-                        <p>Dom</p>
-                        <img src="./assets/icons/33.svg" alt="icone do tempo">
+                        <p data-js="weekDay">Qua</p>
+                        <img data-js="fiveIcon" src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
-                            <span>30</span>
+                            <span data-js="temperature">30</span>
                             <span>&degC</span>
                         </p>
                     </li>
                     <li class="item">
-                        <p>Dom</p>
-                        <img src="./assets/icons/33.svg" alt="icone do tempo">
+                        <p data-js="weekDay">Qui</p>
+                        <img data-js="fiveIcon" src="./assets/icons/33.svg" alt="icone do tempo">
                         <p>
-                            <span>30</span>
+                            <span data-js="temperature">30</span>
                             <span>&degC</span>
                         </p>
                     </li>

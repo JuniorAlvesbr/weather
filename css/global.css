@@ -4,13 +4,16 @@ body {
 
 .main {
     width: 414px;
-    height: auto;
+    height: 100vh;
     margin: 0 auto;
     padding: 26px;
     background-color: var(--color-light);
     color: var(--color-white);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+}
+
+.main.-dark {
+    background-color: var(--color-dark);
 }

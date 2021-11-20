@@ -1,6 +1,12 @@
-section {
+.wrapper {
     width: 100%;
+    display: none;
 }
+
+.wrapper.-active {
+    display: block;
+}
+
 .main-weather {
     margin-top: 24px;
     text-align: center;
