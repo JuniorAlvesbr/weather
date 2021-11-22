@@ -2,13 +2,13 @@ const APIKEY = 'aehqz1SAOGx9sRHRaIe7iRMiv68movzn'
 const daysOFtheWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
 
 const getCityURl = inputValue =>
-    `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${APIKEY}&q=${inputValue}`
+    `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${APIKEY}&q=${inputValue}`
 
 const getWeatherURL = Key =>
-    `http://dataservice.accuweather.com/currentconditions/v1/${Key}?apikey=${APIKEY}&language=pt-br&details=true`
+    `https://dataservice.accuweather.com/currentconditions/v1/${Key}?apikey=${APIKEY}&language=pt-br&details=true`
 
 const getForecastFiveDaysURL = Key =>
-    `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${Key}?apikey=${APIKEY}&metric=true`
+    `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${Key}?apikey=${APIKEY}&metric=true`
 
 
 const getInfoAPI = async (inputValue) => {
