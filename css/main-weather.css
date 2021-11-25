@@ -25,10 +25,16 @@
 
 .main-weather > .weather-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 18px;
 }
 
+.main-weather > .weather-info .item {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .main-weather > .weather-info .icon {
-    display: block;
+    width: 30px;
 }
