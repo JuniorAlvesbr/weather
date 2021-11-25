@@ -14,14 +14,10 @@ const $temperature = document.querySelectorAll('[data-js="temperature"]')
 
 const iconURL = `https://developer.accuweather.com/sites/default/files/01-s.png`
 
-$form.addEventListener('submit', async event => {
-    event.preventDefault()
-
-    const inputValue = event.target.inputCity.value
-    const dataInfoApi = await getInfoAPI(inputValue)
-
-    showDataInHTML(dataInfoApi)
-})
+const getIconURL = icon =>
+    icon < 10 ?
+        `https://developer.accuweather.com/sites/default/files/0${icon}-s.png` :
+        `https://developer.accuweather.com/sites/default/files/${icon}-s.png`
 
 const showDataInHTML = ({
     LocalizedName,
@@ -56,7 +52,11 @@ const showFiveDaysinHTML = (data) => {
     })
 }
 
-const getIconURL = icon =>
-    icon < 10 ?
-        `https://developer.accuweather.com/sites/default/files/0${icon}-s.png` :
-        `https://developer.accuweather.com/sites/default/files/${icon}-s.png`
+$form.addEventListener('submit', async event => {
+    event.preventDefault()
+
+    const inputValue = event.target.inputCity.value
+    const dataInfoApi = await getInfoAPI(inputValue)
+
+    showDataInHTML(dataInfoApi)
+})

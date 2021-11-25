@@ -10,28 +10,6 @@ const getWeatherURL = Key =>
 const getForecastFiveDaysURL = Key =>
     `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${Key}?apikey=${APIKEY}&metric=true`
 
-
-const getInfoAPI = async (inputValue) => {
-    try {
-        const [{ LocalizedName, Key }] = await getCity(inputValue)
-
-        if (LocalizedName === "") {
-            throw new Error('Não foi posssivel localizar a cidade')
-        }
-
-        const dataWeather = await getWeather(Key)
-        const dataForecastFiveDays = await getForecastFiveDays(Key)
-
-        dataWeather['LocalizedName'] = LocalizedName
-        dataWeather['dataForecastFiveDays'] = dataForecastFiveDays
-
-        return dataWeather
-
-    } catch ({ name, message }) {
-        alert(`${name}, ${message}`)
-    }
-}
-
 const getCity = async (inputValue) => {
     const cityURL = getCityURl(inputValue)
 
@@ -91,3 +69,25 @@ const getForecastFiveDays = async Key => {
 
     return forecastFiveDays
 }
+
+const getInfoAPI = async (inputValue) => {
+    try {
+        const [{ LocalizedName, Key }] = await getCity(inputValue)
+
+        if (LocalizedName === "") {
+            throw new Error('Não foi posssivel localizar a cidade')
+        }
+
+        const dataWeather = await getWeather(Key)
+        const dataForecastFiveDays = await getForecastFiveDays(Key)
+
+        dataWeather['LocalizedName'] = LocalizedName
+        dataWeather['dataForecastFiveDays'] = dataForecastFiveDays
+
+        return dataWeather
+
+    } catch ({ name, message }) {
+        alert(`${name}, ${message}`)
+    }
+}
+
