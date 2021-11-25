@@ -58,5 +58,5 @@ $form.addEventListener('submit', async event => {
     const inputValue = event.target.inputCity.value
     const dataInfoApi = await getInfoAPI(inputValue)
 
-    showDataInHTML(dataInfoApi)
+    dataInfoApi && showDataInHTML(dataInfoApi)
 })

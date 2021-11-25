@@ -1,4 +1,4 @@
-const APIKEY = 'aehqz1SAOGx9sRHRaIe7iRMiv68movzn'
+const APIKEY = 'UdAPby9lQSKw5JvLBZ36J7g5auScEBGI'
 const daysOFtheWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
 
 const getCityURl = inputValue =>
@@ -72,11 +72,13 @@ const getForecastFiveDays = async Key => {
 
 const getInfoAPI = async (inputValue) => {
     try {
-        const [{ LocalizedName, Key }] = await getCity(inputValue)
+        const response = await getCity(inputValue)
 
-        if (LocalizedName === "") {
+        if (response.length === 0) {
             throw new Error('Não foi posssivel localizar a cidade')
         }
+
+        const [{ LocalizedName, Key }] = response
 
         const dataWeather = await getWeather(Key)
         const dataForecastFiveDays = await getForecastFiveDays(Key)
