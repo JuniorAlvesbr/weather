@@ -1,5 +1,4 @@
 const APIKEY = 'UdAPby9lQSKw5JvLBZ36J7g5auScEBGI'
-const daysOFtheWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
 
 const getCityURl = inputValue =>
     `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${APIKEY}&q=${inputValue}`
@@ -52,22 +51,18 @@ const getWeather = async Key => {
 }
 
 const getForecastFiveDays = async Key => {
-    const forecastFiveDays = []
+    const daysOFtheWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
     const forecastFiveDaysURL = getForecastFiveDaysURL(Key)
     const { DailyForecasts } = await (await fetch(forecastFiveDaysURL)).json()
+    const get = date => new Date(date)
 
-    DailyForecasts.map(item => {
-        const getWeekDay = new Date(item.Date).getDay()
-        const weekDay = daysOFtheWeek[getWeekDay]
 
-        forecastFiveDays.push({
-            'weekDay': weekDay,
-            'icon': item.Day.Icon,
-            'temperature': Math.round(item.Temperature.Maximum.Value)
-        })
+    return forecastFiveDays = DailyForecasts.map(item => ({
+        'weekDay': daysOFtheWeek[get(item.Date).getDay()],
+        'icon': item.Day.Icon,
+        'temperature': Math.round(item.Temperature.Maximum.Value)
     })
-
-    return forecastFiveDays
+    )
 }
 
 const getInfoAPI = async (inputValue) => {
