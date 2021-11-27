@@ -14,10 +14,10 @@ const $temperature = document.querySelectorAll('[data-js="temperature"]')
 
 const iconURL = `https://developer.accuweather.com/sites/default/files/01-s.png`
 
-const getIconURL = icon =>
-    icon < 10 ?
-        `https://developer.accuweather.com/sites/default/files/0${icon}-s.png` :
-        `https://developer.accuweather.com/sites/default/files/${icon}-s.png`
+const getIconURL = icon => {
+    const withZero = icon < 10 ? `0${icon}` : `${icon}`
+    return `https://developer.accuweather.com/sites/default/files/${withZero}-s.png`
+}
 
 const showDataInHTML = ([dataWeather, LocalizedName, dataForecastFiveDays]) => {
     $cityName.textContent = LocalizedName
