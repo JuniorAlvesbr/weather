@@ -19,33 +19,23 @@ const getIconURL = icon =>
         `https://developer.accuweather.com/sites/default/files/0${icon}-s.png` :
         `https://developer.accuweather.com/sites/default/files/${icon}-s.png`
 
-const showDataInHTML = ({
-    LocalizedName,
-    WeatherText,
-    WeatherIcon,
-    IsDayTime,
-    Temperature,
-    RelativeHumidity,
-    Wind,
-    Pressure,
-    dataForecastFiveDays
-}) => {
+const showDataInHTML = ([dataWeather, LocalizedName, dataForecastFiveDays]) => {
     $cityName.textContent = LocalizedName
-    $icon.src = getIconURL(WeatherIcon)
-    $weather.textContent = WeatherText
-    $mainTemperature.textContent = Temperature.Metric.Value
-    $pressure.textContent = Pressure.Metric.Value
-    $relativeHumidity.textContent = RelativeHumidity
-    $windSpeed.textContent = Wind.Speed.Metric.Value
+    $icon.src = getIconURL(dataWeather.WeatherIcon)
+    $weather.textContent = dataWeather.WeatherText
+    $mainTemperature.textContent = dataWeather.Temperature.Metric.Value
+    $pressure.textContent = dataWeather.Pressure.Metric.Value
+    $relativeHumidity.textContent = dataWeather.RelativeHumidity
+    $windSpeed.textContent = dataWeather.Wind.Speed.Metric.Value
     showFiveDaysinHTML(dataForecastFiveDays)
 
-    IsDayTime ? $main.classList.remove('-dark') : $main.classList.add('-dark')
+    dataWeather.IsDayTime ? $main.classList.remove('-dark') : $main.classList.add('-dark')
     $form.reset()
     $wrapper.classList.add('-active')
 }
 
-const showFiveDaysinHTML = (data) => {
-    data.forEach(({ weekDay, icon, temperature }, index) => {
+const showFiveDaysinHTML = (dataForecastFiveDays) => {
+    dataForecastFiveDays.forEach(({ weekDay, icon, temperature }, index) => {
         $weekDay[index].textContent = weekDay
         $fiveIcon[index].src = getIconURL(icon)
         $temperature[index].textContent = temperature
@@ -59,4 +49,5 @@ $form.addEventListener('submit', async event => {
     const dataInfoApi = await getInfoAPI(inputValue)
 
     dataInfoApi && showDataInHTML(dataInfoApi)
+
 })

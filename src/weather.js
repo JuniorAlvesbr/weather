@@ -83,10 +83,7 @@ const getInfoAPI = async (inputValue) => {
         const dataWeather = await getWeather(Key)
         const dataForecastFiveDays = await getForecastFiveDays(Key)
 
-        dataWeather['LocalizedName'] = LocalizedName
-        dataWeather['dataForecastFiveDays'] = dataForecastFiveDays
-
-        return dataWeather
+        return [dataWeather, LocalizedName, dataForecastFiveDays]
 
     } catch ({ name, message }) {
         alert(`${name}, ${message}`)
