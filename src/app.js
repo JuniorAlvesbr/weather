@@ -29,7 +29,12 @@ const showDataInHTML = ([dataWeather, LocalizedName, dataForecastFiveDays]) => {
     $windSpeed.textContent = dataWeather.Wind.Speed.Metric.Value
     showFiveDaysinHTML(dataForecastFiveDays)
 
-    dataWeather.IsDayTime ? $main.classList.remove('-dark') : $main.classList.add('-dark')
+    if (dataWeather.IsDayTime) {
+        $main.classList.remove("-dark")
+    } else {
+        $main.classList.add("-dark")
+    }
+
     $form.reset()
     $wrapper.classList.add('-active')
 }
