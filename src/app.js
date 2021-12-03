@@ -47,12 +47,30 @@ const showFiveDaysinHTML = (dataForecastFiveDays) => {
     })
 }
 
+const showWeather = async (city) => {
+    const dataInfoApi = await getInfoAPI(city)
+
+    if (dataInfoApi) {
+        localStorage.setItem('city', city)
+        showDataInHTML(dataInfoApi)
+        return
+    }
+
+    localStorage.removeItem('city')
+}
+
 $form.addEventListener('submit', async event => {
     event.preventDefault()
 
     const inputValue = event.target.inputCity.value
-    const dataInfoApi = await getInfoAPI(inputValue)
 
-    dataInfoApi && showDataInHTML(dataInfoApi)
+    showWeather(inputValue)
 
 })
+
+const getCityLocalStorage = () => {
+    const city = localStorage.getItem('city')
+    city && showWeather(city)
+}
+
+getCityLocalStorage()
