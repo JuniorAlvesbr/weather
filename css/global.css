@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: var(--color-light);
 }
 
 .main {
@@ -7,7 +8,6 @@ body {
     height: 100vh;
     margin: 0 auto;
     padding: 26px;
-    background-color: var(--color-light);
     color: var(--color-white);
     display: flex;
     flex-direction: column;
